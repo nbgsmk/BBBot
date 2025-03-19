@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+        .horzo{
+            display: flex;
+            border: 1px solid red;
+        }
+        .symbol{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            width: fit-content;
+            height: fit-content;
+        }
+        .intervali{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            width: fit-content;
+            height: fit-content;
+        }
+        .button{
+            display: inline-block;
+            height: min-content;
+            width: min-content;
+        }
+        #tv_chart{
+            position: absolute;
+            width: 50vw;
+            height: 50vh;
+        }
+	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TV indicators</title>
+</head>
+<body>
+
+	<div class="horzo">
+		<input type="radio" id="btcusdt" name="rg_symbol" value="BTCUSDT" onchange="promeni_ticker(this.id)">
+		<label for="btcusdt">BTC</label><br>
+		<input type="radio" id="ethusdt" name="rg_symbol" value="ETHUSDT" onchange="promeni_ticker(this.id)">
+		<label for="ethusdt">ETH</label><br>
+
+		<div class="intervali">
+			<button id="1m" onClick="promeni_interval(this.id)" class="button">1m</button>
+			<button id="3m" onClick="promeni_interval(this.id)" class="button">3m</button>
+			<button id="5m" onClick="promeni_interval(this.id)" class="button">5m</button>
+			<button id="15m" onClick="promeni_interval(this.id)" class="button">15m</button>
+			<button id="30m" onClick="promeni_interval(this.id)" class="button">30m</button>
+
+			<button id="1h" onClick="promeni_interval(this.id)" class="button">1H</button>
+			<button id="2h" onClick="promeni_interval(this.id)" class="button">2H</button>
+			<button id="4h" onClick="promeni_interval(this.id)" class="button">4H</button>
+			<button id="8h" onClick="promeni_interval(this.id)" class="button">8H</button>
+
+			<button id="1d" onClick="promeni_interval(this.id)" class="button">1D</button>
+			<button id="3d" onClick="promeni_interval(this.id)" class="button">3D</button>
+
+			<button id="1w" onClick="promeni_interval(this.id)" class="button">1W</button>
+
+		</div>
+	</div>
+
+	<div id="tv_chart"></div>
+</body>
+<!--	<script src="tv.js"></script>-->
+<!--	<script src="index.js"></script>-->
+	<script type="module" src="index.js"></script>
+</html>
