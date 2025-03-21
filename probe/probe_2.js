@@ -1,6 +1,6 @@
 import { createChart, LineSeries, CandlestickSeries, HistogramSeries } from '/js/lightweight-charts.standalone.development.mjs';
 
-const chartOptions = { layout: { textColor: 'blue', background: { type: 'solid', color: 'white' } } };
+const chartOptions = { layout: { textColor: 'black', background: { type: 'solid', color: 'white' } } };
 const chart = createChart(document.getElementById('tv_chart'), chartOptions);
 
 
@@ -51,6 +51,9 @@ const hData = [
 	{ time: '2019-04-20', value: 9.43 },
 ];
 
+// const histogramSeries = chart.addSeries(HistogramSeries, { color: '#26a69a' });
+// histogramSeries.setData(hData);
+
 const volumeSeries = chart.addSeries(
 	HistogramSeries,
 	{
@@ -62,6 +65,39 @@ const volumeSeries = chart.addSeries(
 );
 volumeSeries.setData(hData);
 
+const v2 = chart.addSeries(
+	HistogramSeries,
+	{
+		priceFormat: {
+			type: 'volume',
+		},
+	},
+	2 // Pane index
+);
+v2.setData(hData);
+
+
+
+const v3 = chart.addSeries(
+	LineSeries,
+	{
+		priceFormat: {
+			type: 'volume',
+		},
+	},
+	3 // Pane index
+);
+v3.setData(hData);
 
 chart.timeScale().fitContent();
+
+export function klik(ajdi) {
+	console.log('klik na ' + ajdi );
+}
+
+export function prikiti() {
+	console.log('prikiti ');
+}
+
+
 

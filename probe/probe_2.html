@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+        .horzo{
+            display: flex;
+            border: 1px solid red;
+        }
+        .symbol{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            width: fit-content;
+            height: fit-content;
+        }
+        .intervali{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            width: fit-content;
+            height: fit-content;
+        }
+        .button{
+            display: inline-block;
+            height: min-content;
+            width: min-content;
+        }
+        #tv_chart{
+            position: absolute;
+            width: 80vw;
+            height: 80vh;
+        }
+
+	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Probe</title>
+</head>
+<body>
+
+
+<div class="horzo">
+	<input type="radio" id="btcusdt" name="rg_symbol" value="BTCUSDT" onchange="promeni_ticker(this.id)">
+	<label for="btcusdt">BTC</label><br>
+	<input type="radio" id="ethusdt" name="rg_symbol" value="ETHUSDT" onchange="promeni_ticker(this.id)">
+	<label for="ethusdt">ETH</label><br>
+
+	<div class="intervali">
+		<input type="button" value="5m" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
+		<input type="button" value="15m" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
+		<input type="button" value="1h" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
+		<input type="button" value="4h" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
+		<input type="button" value="1d" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
+		<input type="button" value="3d" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
+
+		<input type="button" value="patka" onclick="prikiti()" />
+
+
+	</div>
+</div>
+
+<div id="tv_chart"></div>
+
+<script type="module" src="probe_2.js"></script>
+<script type="module">
+	import {prikiti} from "./probe_2.js";
+</script>
+
+</body>
+
+</html>
