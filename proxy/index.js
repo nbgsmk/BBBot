@@ -44,7 +44,7 @@ app.use(cors());
 app.get('/:symbol/:interval', async (req, res) => {
   try {
     const { symbol, interval } = req.params;
-    rere = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}`;
+    rere = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=4`;
     console.log(rere);
     const resp = await got(
         rere

@@ -1,8 +1,14 @@
-import { createChart, LineSeries, CandlestickSeries, HistogramSeries } from '/js/lightweight-charts.standalone.development.mjs';
+import { createChart, LineSeries, CandlestickSeries, HistogramSeries } from 'lightweight-charts';
+import cors from 'cors';
+// import cors from 'cors';
+// console.log(cors);
+// const got = require('got');
+// const cors = require('cors');
+
+
 
 const chartOptions = { layout: { textColor: 'blue', background: { type: 'solid', color: 'white' } } };
 const chart = createChart(document.getElementById('tv_chart'), chartOptions);
-
 
 const lineSeries = chart.addSeries(LineSeries);
 lineSeries.setData([
@@ -64,4 +70,3 @@ volumeSeries.setData(hData);
 
 
 chart.timeScale().fitContent();
-

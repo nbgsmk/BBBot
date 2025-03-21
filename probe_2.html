@@ -19,6 +19,7 @@
             justify-content: center;
             width: fit-content;
             height: fit-content;
+			gap: 2px;
         }
         .button{
             display: inline-block;
@@ -45,26 +46,29 @@
 	<input type="radio" id="ethusdt" name="rg_symbol" value="ETHUSDT" onchange="promeni_ticker(this.id)">
 	<label for="ethusdt">ETH</label><br>
 
-	<div class="intervali">
-		<input type="button" value="5m" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
-		<input type="button" value="15m" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
-		<input type="button" value="1h" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
-		<input type="button" value="4h" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
-		<input type="button" value="1d" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
-		<input type="button" value="3d" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />
+	<div class="intervali" id="buttons_container">
+<!--		<input type="button" value="5m" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />-->
+<!--		<input type="button" value="15m" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />-->
+<!--		<input type="button" value="1h" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />-->
+<!--		<input type="button" value="4h" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />-->
+<!--		<input type="button" value="1d" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />-->
+<!--		<input type="button" value="3d" onclick="import('./probe_2.js').then(Module => Module.klik(this.value))" />-->
 
-		<input type="button" value="patka" onclick="prikiti()" />
+<!--		<input type="button" value="1M" onclick="import('./probe_2.js').then(Module => Module.setChartInterval(this.value))" />-->
+<!--		<input type="button" value="patka" onclick="prikiti()" />-->
 
 
 	</div>
+
+
 </div>
 
 <div id="tv_chart"></div>
 
 <script type="module" src="probe_2.js"></script>
-<script type="module">
-	import {prikiti} from "./probe_2.js";
-</script>
+<!--<script type="module">-->
+<!--	import {prikiti} from "probe_2.js";-->
+<!--</script>-->
 
 </body>
 

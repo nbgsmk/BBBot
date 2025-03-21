@@ -1,10 +1,46 @@
 import { createChart, LineSeries, CandlestickSeries, HistogramSeries } from '/js/lightweight-charts.standalone.development.mjs';
+// import cors from "cors";
+// import got from 'got';
+// import express from 'express';
+console.log('hajde');
+
 
 const chartOptions = { layout: { textColor: 'black', background: { type: 'solid', color: 'white' } } };
-const chart = createChart(document.getElementById('tv_chart'), chartOptions);
+const chartContainer = document.getElementById('tv_chart');
+const chart = createChart(chartContainer, chartOptions);
+
+const dayData = [
+	{ time: '2019-10-19', value: 26.19 },
+	{ time: '2019-10-22', value: 25.87 },
+	{ time: '2019-10-23', value: 25.83 },
+	{ time: '2019-10-24', value: 25.78 },
+];
+const weekData = [
+	{ time: '2019-07-18', value: 26.1 },
+	{ time: '2019-07-25', value: 26.19 },
+	{ time: '2019-08-01', value: 26.24 },
+	{ time: '2019-08-08', value: 26.22 },
+];
+const monthData = [
+	{ time: '2018-12-01', value: 25.4 },
+	{ time: '2019-01-01', value: 25.5 },
+	{ time: '2019-02-01', value: 25.11 },
+	{ time: '2019-03-01', value: 25.24 },
+];
+const seriesData = new Map([
+	['1D', dayData],
+	['1W', weekData],
+	['1M', monthData],
+]);
+const intervalColors = {
+	'1D': '#2962FF',
+	'1W': 'rgb(225, 87, 90)',
+	'1M': 'rgb(242, 142, 44)',
+	'1Y': 'rgb(164, 89, 209)',
+};
 
 
-const lineSeries = chart.addSeries(LineSeries);
+const lineSeries = chart.addSeries(LineSeries, { color: intervalColors['1D'] });
 lineSeries.setData([
 	{ time: '2019-04-11', value: 80.01 },
 	{ time: '2019-04-12', value: 96.63 },
@@ -51,8 +87,6 @@ const hData = [
 	{ time: '2019-04-20', value: 9.43 },
 ];
 
-// const histogramSeries = chart.addSeries(HistogramSeries, { color: '#26a69a' });
-// histogramSeries.setData(hData);
 
 const volumeSeries = chart.addSeries(
 	HistogramSeries,
@@ -91,13 +125,35 @@ v3.setData(hData);
 
 chart.timeScale().fitContent();
 
-export function klik(ajdi) {
-	console.log('klik na ' + ajdi );
-}
+// export function klik(ajdi) {
+// 	console.log('klik na ' + ajdi );
+// }
+//
+// export function prikiti() {
+// 	console.log('prikiti ');
+// }
 
-export function prikiti() {
-	console.log('prikiti ');
-}
+
+// export function setChartInterval(interval) {
+// 	lineSeries.setData(seriesData.get(interval));
+// 	lineSeries.applyOptions({
+// 		color: intervalColors[interval],
+// 	});
+// 	chart.timeScale().fitContent();
+// }
 
 
 
+// setChartInterval('1D');
+
+// const buttonsContainer = document.createElement('div');
+// buttonsContainer.classList.add('buttons-container');
+// const intervals = ['1D', '1W', '1M', '1Y'];
+// intervals.forEach(interval => {
+// 	const button = document.createElement('button');
+// 	button.innerText = interval;
+// 	button.addEventListener('click', () => setChartInterval(interval));
+// 	buttonsContainer.appendChild(button);
+// });
+//
+// chartContainer.appendChild(buttonsContainer);
